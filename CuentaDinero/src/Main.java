@@ -1,20 +1,23 @@
 import java.util.ArrayList;
+import java.util.concurrent.Semaphore;
 
 
 public class Main {
 
 	public static void main(String[] args) {
-		Cuenta cuenta = new Cuenta(10000);
+		Semaphore semaforo = new Semaphore (1, true);
+		
+		Cuenta cuenta = new Cuenta(10000, semaforo);
 		Ahorrador ahorrador;
 		Gastador gastador;
 		ArrayList<Ahorrador> ahorradores = new ArrayList<Ahorrador>();
 		ArrayList<Gastador> gastadores = new ArrayList<Gastador>();
 		
-		for(int i = 0; i < 10; i ++){
-			ahorrador = new Ahorrador(10, cuenta);
+		for(int i = 0; i < 100; i ++){
+			ahorrador = new Ahorrador(1000, cuenta);
 			ahorradores.add(ahorrador);
 			ahorrador.start();
-			gastador = new Gastador(10, cuenta);
+			gastador = new Gastador(1000, cuenta);
 			gastadores.add(gastador);
 			gastador.start();
 			

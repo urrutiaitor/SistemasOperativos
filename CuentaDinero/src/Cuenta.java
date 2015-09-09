@@ -1,27 +1,30 @@
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.Semaphore;
+
 
 
 public class Cuenta {
-	public static AtomicInteger saldo = new AtomicInteger(0);
-	MainClass.number.incrementAndGet();
+	
+	float saldo;
+	Semaphore semaforo;
 
-	public Cuenta(float saldo) {
+	public Cuenta(float saldo, Semaphore semaforo) {
 		super();
 		this.saldo = saldo;
-	}
-	
-	
-
-	public float getSaldo() {
-		return saldo;
-	}
-
-	public void setSaldo(float saldo) {
-		this.saldo = saldo;
+		this.semaforo = semaforo;
 	}
 
 	public void changeSaldo(float saldo) {
+		
+		try {
+			semaforo.acquire();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		this.saldo = this.saldo + saldo;
+		
+		semaforo.release();
 	}
 
 	@Override
