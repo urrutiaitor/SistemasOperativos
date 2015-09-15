@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 3 elements to &apos;SincronizacionHilos/src/EsperarVariasVeces&apos;&#x0A;- Original project: &apos;SincronizacionHilos&apos;&#x0A;- Destination element: &apos;SincronizacionHilos/src/EsperarVariasVeces&apos;&#x0A;- Original elements:&#x0A;     Inicial.Main.java&#x0A;     Inicial.Trabajador.java&#x0A;     Inicial.Trabajo.java" description="Copy compilation units" destination="/src&lt;EsperarVariasVeces" element1="/src&lt;Inicial{Main.java" element2="/src&lt;Inicial{Trabajador.java" element3="/src&lt;Inicial{Trabajo.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1442297932838" units="3" version="1.0"/>
+</session>

@@ -1,0 +1,43 @@
+package Inicial;
+
+import java.util.concurrent.Semaphore;
+
+public class Trabajador extends Thread {
+
+	Semaphore semaforo;
+	Trabajo trabajo;
+	
+	public Trabajador(Semaphore semaforo, Trabajo trabajo) {
+		super();
+		this.semaforo = semaforo;
+		this.trabajo = trabajo;
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		super.run();
+		
+		long a = 0;
+		
+		for(int i = 0; i < 10; i++){
+			for(int y = 0; y < 10; y++){
+				a = a + y;
+			}
+		}
+		try {
+			semaforo.acquire();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(trabajo.añadirTrabajo()){
+			semaforo.release(trabajo.getLimite());
+		}
+		System.out.println("Hi!" + this.toString());
+	}
+
+	
+	
+	
+}
