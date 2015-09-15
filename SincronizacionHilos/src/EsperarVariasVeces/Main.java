@@ -7,7 +7,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int trabajos = 3;
+		int trabajos = 	100000;
 		Semaphore semaforo = new Semaphore(0, true);
 		Semaphore semaforoAux = new Semaphore(trabajos, true);
 		Trabajo trabajo = new Trabajo(trabajos);

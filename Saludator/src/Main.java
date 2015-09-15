@@ -13,7 +13,7 @@ public class Main implements Observer{
 	public static void main(String[] args) {
 		
 		Main main = new Main();
-		Thread thread = new Thread(new Saludator("Hi!!");
+		Thread thread = new Thread(new Saludator("Hi!!"));
 		thread.start();
 
 		while(main.end);

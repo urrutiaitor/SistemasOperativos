@@ -1,0 +1,22 @@
+package Inicial;
+
+public class Consumidor extends Thread {
+
+	Buffer buffer;
+	
+	public Consumidor(Buffer buffer) {
+		this.buffer = buffer;
+	}
+
+	public void run() {
+		try {
+			Thread.sleep(1010);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("> " + buffer.recogerNumero());
+	}
+	
+}
