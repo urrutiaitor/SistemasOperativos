@@ -1,0 +1,64 @@
+package escribirALaVez;
+
+import java.util.ArrayList;
+import java.util.concurrent.Semaphore;
+
+
+
+public class Escritor extends Thread{
+
+	ArrayList<Escritor> escritores;
+	Semaphore semaforo;
+	Semaphore semaforoAux;
+	
+	public Escritor(ArrayList<Escritor> escritores, Semaphore semaforo, Semaphore semaforoAux) {
+		this.escritores = escritores;
+		this.semaforo = semaforo;
+		this.semaforoAux = semaforoAux;
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		super.run();
+		
+		for(int i = 0; i < 10; i++) {
+			
+			if(trabajo.añadirTrabajo()){
+				System.out.println("---------");
+				try {
+					semaforoAux.acquire(semaforoAux.availablePermits());
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				semaforo.release(trabajo.getLimite() - 1);
+			} else {
+				try {
+					semaforo.acquire();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(trabajo.crearTrabajo()){
+				try {
+					semaforo.acquire(semaforo.availablePermits());
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				semaforoAux.release(trabajo.getLimite() - 1);
+			} else {
+				try {
+					semaforoAux.acquire();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+		}
+		System.out.println("Hi!" + this.toString());
+	}
+}

@@ -1,0 +1,11 @@
+package multiplicacionMatriz;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Matriz matrizA = new Matriz();
+		Matriz matrizB = new Matriz();
+		Matriz matrizC = new Matriz();
+	}
+
+}

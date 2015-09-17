@@ -1,0 +1,8 @@
+package juegoJugador;
+
+public class HiloPositibo {
+
+	final int numeroSecreto = 3;
+	
+	public void run(
+}

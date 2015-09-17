@@ -1,0 +1,23 @@
+package juegoJugador;
+
+public class Jugador {
+
+	int vidas;
+
+	public Jugador(int vidas) {
+		super();
+		this.vidas = vidas;
+	}
+	
+	public int getNumVidas(){
+		return vidas;
+	}
+	
+	public void quitarVida(){
+		vidas--;
+	}
+	
+	public void darVida(){
+		vidas++;
+	}
+}

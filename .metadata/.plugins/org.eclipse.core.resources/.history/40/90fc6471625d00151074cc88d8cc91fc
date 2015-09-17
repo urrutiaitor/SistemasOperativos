@@ -1,0 +1,23 @@
+package escribirALaVez;
+
+import java.util.ArrayList;
+import java.util.concurrent.Semaphore;
+
+public class Main {
+
+	final static int numEscritores = 10;
+	
+	public static void main(String[] args) {
+		Semaphore semaforo = new Semaphore(0, true);
+		Semaphore semaforoAux = new Semaphore(numEscritores, true);
+		ArrayList<Escritor> escritores = new ArrayList<Escritor>();
+	
+	}
+	
+	private void crearEscritores(ArrayList<Escritor> escritores){
+		for(int i = 0; i < numEscritores; i++){
+			escritores.add(new Escritor(escritores));
+		}
+	}
+
+}

@@ -1,0 +1,10 @@
+package multiplicacionMatriz;
+
+public class Matriz {
+
+	
+	public Matriz() {
+		
+	}
+	
+}

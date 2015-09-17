@@ -1,0 +1,25 @@
+package juegoJugador;
+
+import java.util.Random;
+
+public class HiloNegativo extends Thread{
+
+	int numeroSecreto;
+	int difVida;
+	
+	
+	public HiloNegativo(int numeroSecreto, int difVida) {
+		super();
+		this.numeroSecreto = numeroSecreto;
+		this.difVida = difVida;
+	}
+	
+	public void run(){
+		Random random = new Random();
+		
+		while(true){
+			
+		}
+	}
+	
+}
