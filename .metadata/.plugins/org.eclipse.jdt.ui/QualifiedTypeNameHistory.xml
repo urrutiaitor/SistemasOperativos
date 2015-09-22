@@ -8,7 +8,6 @@
 <fullyQualifiedTypeName name="java.util.Vector"/>
 <fullyQualifiedTypeName name="java.util.concurrent.atomic.AtomicInteger"/>
 <fullyQualifiedTypeName name="Hilo"/>
-<fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="Inicial.Trabajo"/>
 <fullyQualifiedTypeName name="Inicial.Trabajador"/>
 <fullyQualifiedTypeName name="java.nio.Buffer"/>
@@ -20,7 +19,6 @@
 <fullyQualifiedTypeName name="BufferSincronizadoAlmacenadoVarios.Main"/>
 <fullyQualifiedTypeName name="javax.swing.JPanel"/>
 <fullyQualifiedTypeName name="java.awt.GridLayout"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="Cronometro.Cronometro"/>
 <fullyQualifiedTypeName name="multiplicacionMatriz.Matriz"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
@@ -42,9 +40,18 @@
 <fullyQualifiedTypeName name="escribirALaVez.Escritor"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="escribirYLeerEnArray.Hilo"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="escribirYLeerEnArray.Visualizador"/>
-<fullyQualifiedTypeName name="java.util.Scanner"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="costureros.Cuerpo"/>
+<fullyQualifiedTypeName name="costureros.Cesta"/>
+<fullyQualifiedTypeName name="costureros.Ensamblaje"/>
 <fullyQualifiedTypeName name="java.util.concurrent.Semaphore"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="fabricaEmpaquetado.RobotA"/>
+<fullyQualifiedTypeName name="fabricaEmpaquetado.Almacen"/>
+<fullyQualifiedTypeName name="fabricaMontaje.Almacen"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="fabricaMontaje.RobotMontaje"/>
 </qualifiedTypeNameHistroy>

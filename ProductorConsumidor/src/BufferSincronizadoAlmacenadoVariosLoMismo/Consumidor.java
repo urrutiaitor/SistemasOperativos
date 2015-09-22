@@ -13,7 +13,12 @@ public class Consumidor extends Thread {
 		while (true) {
 			
 			
-			System.out.println("> " + buffer.getNumero());
+			try {
+				System.out.println("> " + buffer.getNumero());
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 		}
 	}

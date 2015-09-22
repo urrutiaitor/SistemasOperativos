@@ -59,13 +59,13 @@ public class Main {
 	
 	private void pararProductores(ArrayList<Productor> productores) {
 		for(int i = 0; i < productores.size(); i++){
-			productores.get(i).stop();
+			productores.get(i).interrupt();
 		}
 	}
 	
 	private void pararConsumidores(ArrayList<Consumidor> consumidores) {
 		for(int i = 0; i < consumidores.size(); i++){
-			consumidores.get(i).stop();
+			consumidores.get(i).interrupt();
 		}
 	}
 

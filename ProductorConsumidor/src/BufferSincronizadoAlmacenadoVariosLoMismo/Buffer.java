@@ -24,16 +24,11 @@ public class Buffer {
 		semaforoAux = new Semaphore(numConsumidores);
 	}
 
-	public int getNumero() {
+	public int getNumero() throws InterruptedException {
 		esperar(3000);
 		
-		try {
-			leer.acquire();
-			semaforoAux.acquire();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		leer.acquire();
+		semaforoAux.acquire();
 		int numero = numeros[indiceLeer%valoresMax];
 		mostrarSemaforos();
 		if(semaforoAux.availablePermits() == 0){
@@ -48,14 +43,9 @@ public class Buffer {
 		
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(int numero) throws InterruptedException {
 		esperar(100);
-		try {
-			escribir.acquire();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		escribir.acquire();
 		numeros[indiceEscribir++%valoresMax] = numero;
 		leer.release(numConsumidores);
 		//System.out.println("Numero escrito: " + numero);
