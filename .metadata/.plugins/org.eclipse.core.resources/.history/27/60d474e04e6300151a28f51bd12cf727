@@ -1,0 +1,24 @@
+package gestinTraficoPuente;
+
+import java.util.ArrayList;
+
+public class Main {
+
+	final static int numCochesMax = 20;
+	final static int numInspeccionesMax = 3;
+	final static int numOperariosMax = 3;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public void crearOperarios(ArrayList<Operario> operarios){
+		
+	}
+	
+	public void iniciarOperarios(ArrayList<Operario> operarios){
+		
+	}
+
+}

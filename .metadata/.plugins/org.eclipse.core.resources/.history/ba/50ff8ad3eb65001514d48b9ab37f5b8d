@@ -1,0 +1,29 @@
+package gestinTraficoPuente;
+
+import java.util.concurrent.Semaphore;
+
+public class Puente {
+
+	Semaphore candadoPuente;
+	Semaphore candadoNorte;
+	Semaphore candadoSur;
+	Semaphore semaforoPuenteNorte;
+	Semaphore semaforoPuenteSur;
+	
+	
+	public void cruzar(String direccion) throws InterruptedException{
+		if(direccion.toLowerCase().equals("norte")) cruzarNorte();
+		if(direccion.toLowerCase().equals("sur")) cruzarSur();
+		
+	}
+
+	private void cruzarNorte() throws InterruptedException {
+		semaforoPuenteNorte.acquire();
+	}
+
+	private void cruzarSur() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

@@ -1,0 +1,52 @@
+package canibales;
+
+import java.util.Random;
+
+public class Olla {
+
+	int capacidadMax;
+	int misioneros;
+	
+	Object cocinero;
+	
+	public Olla(int capacidadMax){
+		this.capacidadMax = capacidadMax;
+		misioneros = 0;
+	}
+	
+	public void llenarOlla() {
+		synchronized (cocinero) {
+			if(capacidadMax == misioneros){
+				System.out.println("Despiezando...");
+				esperar(500);
+				System.out.println("Metiendo en olla...");
+				misioneros++;
+				esperar(500);
+				System.out.println("Herviendo.");
+				esperar(500);
+				System.out.println("Herviendo..");
+				esperar(500);
+				System.out.println("Herviendo...");
+				esperar(500);
+			} else {
+				System.out.println("Olla llena");
+				esperar(1000);
+			}
+		}
+		
+	}
+	
+	public void comer(){
+		
+	}
+	
+	public void esperar(int tiempo){
+		Random random = new Random();
+		try {
+			Thread.sleep(tiempo + random.nextInt(1000));
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

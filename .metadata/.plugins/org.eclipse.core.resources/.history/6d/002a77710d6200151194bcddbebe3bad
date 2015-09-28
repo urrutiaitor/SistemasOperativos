@@ -1,0 +1,41 @@
+package canibales;
+
+import java.util.ArrayList;
+
+public class Main {
+
+	final static int capacidadMax = 5;
+	final static int numCanibales = 10;
+	
+	public static void main(String[] args) {
+		Main main = new Main();
+		Olla olla = new Olla(capacidadMax);
+		
+	}
+	
+	public void crearCanivales(ArrayList<Canibal> canibales, Olla olla){
+		for(int i = 0; i < numCanibales; i++){
+			canibales.add(new Canibal(olla));
+		}
+	}
+	
+	public void iniciarCanivales(ArrayList<Canibal> canibales){
+		for(int i = 0; i < canibales.size(); i++){
+			canibales.get(i).start();
+		}
+	}
+	
+	public void pararCanivales(ArrayList<Canibal> canibales){
+		for(int i = 0; i < canibales.size(); i++){
+			canibales.get(i).setHambriento(false);
+			canibales.get(i).interrupt();
+			try {
+				canibales.get(i).join();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+}

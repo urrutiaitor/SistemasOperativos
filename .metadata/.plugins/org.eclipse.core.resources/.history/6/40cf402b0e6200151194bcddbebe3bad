@@ -1,0 +1,33 @@
+package canibales;
+
+public class Canibal extends Thread{
+
+	Olla olla;
+	boolean hambriento;
+	
+	public Canibal(Olla olla){
+		this.olla = olla;
+		hambriento = true;
+	}
+	
+	public void run(){
+		while(hambriento){
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			olla.comer();
+		}
+	}
+
+	public boolean isHambriento() {
+		return hambriento;
+	}
+
+	public void setHambriento(boolean hambriento) {
+		this.hambriento = hambriento;
+	}
+
+}

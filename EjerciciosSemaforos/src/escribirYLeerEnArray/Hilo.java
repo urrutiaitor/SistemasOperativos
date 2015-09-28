@@ -22,12 +22,7 @@ public class Hilo extends Thread {
 	public void run() {
 		Random random = new Random();
 		while(true){
-			try {
-				Thread.sleep(200);
-			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+			
 			try {
 				candado.acquire();
 			} catch (InterruptedException e) {

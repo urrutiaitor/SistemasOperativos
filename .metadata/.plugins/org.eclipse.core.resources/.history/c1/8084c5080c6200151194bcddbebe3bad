@@ -1,0 +1,41 @@
+package canibales;
+
+public class Cocinero {
+
+	Olla olla;
+	boolean despierto;
+
+	public Cocinero(Olla olla) {
+		super();
+		this.olla = olla;
+		despierto = false;
+	}
+	
+	public void run(){
+		while(despierto){
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				olla.getCandadoCocinero().acquire();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if(olla.llenarOlla()) olla.getCandadoCanibal().release(olla.getCapacidadMax());
+		}
+	}
+
+	public boolean isDespierto() {
+		return despierto;
+	}
+
+	public void setDespierto(boolean despierto) {
+		this.despierto = despierto;
+	}
+	
+	
+}

@@ -11,12 +11,7 @@ public class Visualizador extends Thread{
 	
 	public void run(){
 		while(true){
-			try {
-				Thread.sleep(500);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			
 			System.out.println(Integer.toString(numeros[0]) + Integer.toString(numeros[1])
 			+ Integer.toString(numeros[2]) + Integer.toString(numeros[3]));
 		}

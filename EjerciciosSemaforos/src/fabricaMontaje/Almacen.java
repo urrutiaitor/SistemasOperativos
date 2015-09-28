@@ -1,7 +1,5 @@
 package fabricaMontaje;
 
-import java.util.concurrent.Semaphore;
-
 public class Almacen {
 
 	int numPiezas;

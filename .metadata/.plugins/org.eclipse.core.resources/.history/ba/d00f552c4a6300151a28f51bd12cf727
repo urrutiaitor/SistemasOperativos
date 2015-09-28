@@ -1,0 +1,59 @@
+package canibales;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+	final static int capacidadMax = 5;
+	final static int numCanibales = 10;
+	
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		Main main = new Main();
+		Olla olla = new Olla(capacidadMax);
+		Cocinero cocinero = new Cocinero(olla);
+		ArrayList<Canibal> canibales = new ArrayList<Canibal>();
+		main.crearCanibales(canibales, olla);
+		cocinero.start();
+		main.iniciarCanibales(canibales);
+		scanner.nextLine();
+		cocinero.setDespierto(false);
+		cocinero.interrupt();
+		System.out.println("...........................Cocinero terminado...........................");
+		try {
+			cocinero.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		main.pararCanibales(canibales);
+		System.out.println("_________________________________Finished_____________________________");
+	}
+	
+	public void crearCanibales(ArrayList<Canibal> canibales, Olla olla){
+		for(int i = 0; i < numCanibales; i++){
+			canibales.add(new Canibal(olla));
+		}
+	}
+	
+	public void iniciarCanibales(ArrayList<Canibal> canibales){
+		for(int i = 0; i < canibales.size(); i++){
+			canibales.get(i).start();
+		}
+	}
+	
+	public void pararCanibales(ArrayList<Canibal> canibales){
+		for(int i = 0; i < canibales.size(); i++){
+			canibales.get(i).setHambriento(false);
+			canibales.get(i).interrupt();
+			try {
+				canibales.get(i).join();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+}

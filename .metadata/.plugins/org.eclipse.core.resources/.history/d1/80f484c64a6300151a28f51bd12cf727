@@ -1,0 +1,29 @@
+package canibales;
+
+public class Cocinero extends Thread{
+
+	Olla olla;
+	boolean despierto;
+
+	public Cocinero(Olla olla) {
+		super();
+		this.olla = olla;
+		despierto = true;
+	}
+	
+	public void run(){
+		while(despierto){
+			despierto = olla.llenarOlla();
+		}
+	}
+
+	public boolean isDespierto() {
+		return despierto;
+	}
+
+	public void setDespierto(boolean despierto) {
+		this.despierto = despierto;
+	}
+	
+	
+}
