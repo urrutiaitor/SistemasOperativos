@@ -32,6 +32,8 @@ public class Puente {
 	}
 
 	private void cruzarNorte() throws InterruptedException {
+		
+		
 		semaforoPuenteNorte.acquire();
 		semaforoTotalPuenteNorte.acquire();
 		System.out.println("Coche cruzando NORTE");
@@ -41,7 +43,6 @@ public class Puente {
 			System.out.println("-----------CAMBIO-----------");
 			semaforoTotalPuenteNorte.drainPermits();
 		}
-		if(semaforoPuenteNorte.availablePermits() == )
 		
 		candadoPuente.release();
 	}

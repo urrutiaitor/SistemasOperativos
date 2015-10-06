@@ -1,0 +1,40 @@
+package cena;
+
+import java.util.ArrayList;
+
+public class Main {
+
+	Cena cena;
+	ArrayList<Persona> personas;
+	final static int numPersonas = 10;
+	
+	public static void main(String[] args) {
+		Main main = new Main();
+		main.cena = new Cena();
+		main.personas = new ArrayList<Persona>()
+		main.crearPersonas(main.cena);
+		main.iniciarPersonas();
+		System.out.println("Se espera");
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		main.cena.notifyAll();
+	}
+	
+	private void crearPersonas(Cena cena){
+		for(int i = 0; i < numPersonas; i++){
+			personas.add(new Persona(cena, i));
+		}
+	}
+	
+	private void iniciarPersonas(){
+		for(int i = 0; i < numPersonas; i++){
+			personas.get(i).start();
+		}
+	}
+
+	
+}

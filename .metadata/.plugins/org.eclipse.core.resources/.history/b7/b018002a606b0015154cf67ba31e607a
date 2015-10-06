@@ -1,0 +1,29 @@
+package discoteca;
+
+public class Discoteca {
+
+	boolean abierta;
+	int aforo;
+	
+	public Discoteca(int aforo) {
+		super();
+		this.aforo = aforo;
+	}
+
+	public void entrarChico(){
+		
+	}
+	
+	public void entrarChica(){
+		
+	}
+
+	public void cerrar() {
+		abierta = false;
+	}
+
+	public boolean isAbierta() {
+		return abierta;
+	}
+	
+}

@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class Main {
 
-	final static int capacidadMax = 1000;
-	final static int numCanibales = 500;
+	final static int capacidadMax = 200000;
+	final static int numCanibales = 5000000;
 	
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
@@ -29,7 +29,7 @@ public class Main {
 	
 	public void crearCanibales(ArrayList<Canibal> canibales, Olla olla){
 		for(int i = 0; i < numCanibales; i++){
-			canibales.add(new Canibal(olla));
+			canibales.add(new Canibal(olla, i + 1));
 		}
 	}
 	

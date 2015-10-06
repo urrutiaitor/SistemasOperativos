@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 0 elements to &apos;EjerciciosSemaforos3/src/bañosCompartidos&apos;&#x0A;- Destination element: &apos;EjerciciosSemaforos3/src/bañosCompartidos&apos;" description="Copy compilation units" destination="=EjerciciosSemaforos3/src&lt;bañosCompartidos" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1444050849875" units="0" version="1.0"/>
+</session>

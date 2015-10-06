@@ -20,24 +20,26 @@ public class Olla {
 	
 	public boolean llenarOlla()  throws InterruptedException{
 		candadoCocinero.acquire();
-		
+		System.out.print("Cocinando");
 		while(misioneros < capacidadMax){
-			System.out.println("Cocinando");
+			System.out.print(".");
 			misioneros++;
 		}
-		System.out.println("Olla llena");
+		System.out.println(" Olla llena");
 		candadoCanibal.release();
 		
 		return true;
 	}
 	
-	public boolean comer() throws InterruptedException{
+	public boolean comer(int id) throws InterruptedException{
 		candadoCanibal.acquire();
-			
-		System.out.println("Comiendo");
-		System.out.println("Misioneros: " + misioneros);
+		misioneros--;
+		
 		if(misioneros > 0) candadoCanibal.release();
 		else candadoCocinero.release();
+		
+		System.out.println(id + " comiendo");
+		System.out.println("Misioneros: " + misioneros);
 		
 		return true;
 	}
