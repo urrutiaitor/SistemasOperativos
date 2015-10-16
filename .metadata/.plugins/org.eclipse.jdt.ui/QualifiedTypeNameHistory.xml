@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="Inicial.Buffer"/>
-<fullyQualifiedTypeName name="BufferSincronizadoAlmacenadoVarios.Productor"/>
-<fullyQualifiedTypeName name="BufferSincronizadoAlmacenadoVarios.Consumidor"/>
-<fullyQualifiedTypeName name="BufferSincronizadoAlmacenadoVarios.Main"/>
-<fullyQualifiedTypeName name="javax.swing.JPanel"/>
 <fullyQualifiedTypeName name="java.awt.GridLayout"/>
 <fullyQualifiedTypeName name="Cronometro.Cronometro"/>
 <fullyQualifiedTypeName name="multiplicacionMatriz.Matriz"/>
@@ -36,7 +31,6 @@
 <fullyQualifiedTypeName name="fabricaMontaje.Almacen"/>
 <fullyQualifiedTypeName name="fabricaMontaje.RobotMontaje"/>
 <fullyQualifiedTypeName name="java.awt.RadialGradientPaint"/>
-<fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="Inicial.Habitacion"/>
 <fullyQualifiedTypeName name="Inicial.Puerta"/>
 <fullyQualifiedTypeName name="java.awt.Color"/>
@@ -53,11 +47,17 @@
 <fullyQualifiedTypeName name="tenderoCliente.Tendero"/>
 <fullyQualifiedTypeName name="tenderoCliente.Tienda"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="bañosCompartidos.Chico"/>
 <fullyQualifiedTypeName name="bañosCompartidos.Baño"/>
 <fullyQualifiedTypeName name="discoteca.Discoteca"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
-<fullyQualifiedTypeName name="java.util.concurrent.Semaphore"/>
 <fullyQualifiedTypeName name="barberia.Barbero"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="accionesFichero.Main"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="java.io.FileReader"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.concurrent.Semaphore"/>
+<fullyQualifiedTypeName name="itv.BuzonAsincrono"/>
 </qualifiedTypeNameHistroy>

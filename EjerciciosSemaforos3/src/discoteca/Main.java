@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 public class Main {
 
-	static final int aforo = 3;
-	final static int numChicos = 10;
-	final static int numChicas = 10;
+	static final int aforo = 300;
+	final static int numChicos = 2000;
+	final static int numChicas = 2000;
 	
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);

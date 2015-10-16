@@ -16,6 +16,12 @@ public class Chico extends Thread {
 	public void run() {
 		while(discoteca.isAbierta()){
 			discoteca.entrarChico(id);
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 	

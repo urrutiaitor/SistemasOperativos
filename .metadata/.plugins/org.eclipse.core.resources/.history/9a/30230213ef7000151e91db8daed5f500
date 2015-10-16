@@ -1,0 +1,30 @@
+package barreraCiclica;
+
+
+public class Principal {
+
+	public static void main(String[] args) {
+		final int MAXHILOS = 3;
+		//CyclicBarrier barrera = new CyclicBarrier (MAXHILOS,new Runnable(){
+		MiBarrera barrera = new MiBarrera (MAXHILOS,new Runnable(){
+
+			@Override
+			public void run() {
+				System.out.println ("_________________________");
+				
+			}
+			
+		});
+		
+		Numerador hilos [] = new Numerador [MAXHILOS];
+		for (int i= 0; i< MAXHILOS; i++){
+			hilos [i]= new Numerador(i, barrera);
+		}
+		for (int i= 0; i< MAXHILOS; i++){
+			hilos [i].start();
+		}
+		
+		
+	}
+
+}

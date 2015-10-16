@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;productorConsumidor&apos; to &apos;productorConsumidorTodos&apos;&#x0A;- Original project: &apos;EjerciciosMonitores2&apos;&#x0A;- Original element: &apos;EjerciciosMonitores2/src/productorConsumidor&apos;&#x0A;- Renamed element: &apos;EjerciciosMonitores2/src/productorConsumidorTodos&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;productorConsumidor&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;productorConsumidor" name="productorConsumidorTodos" qualified="false" references="true" stamp="1444549011263" textual="false" version="1.0"/>
+</session>

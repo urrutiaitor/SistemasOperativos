@@ -9,6 +9,7 @@ public class Main {
 	final static int numCoches = 10;
 
 	public static void main(String[] args) {
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		Main main = new Main();
 		
@@ -16,31 +17,31 @@ public class Main {
 		Capitan capitan = new Capitan(transbordador);
 		ArrayList<Coche> coches = new ArrayList<Coche>();
 		
-		crearCoches(coches, transbordador);
+		main.crearCoches(coches, transbordador);
 		
 		capitan.start();
-		iniciarCoches(coches);
+		main.iniciarCoches(coches);
 		
 		scanner.nextLine();
 		
 		transbordador.cerrar();
 		capitan.interrupt();
-		pararCoches(coches);
+		main.pararCoches(coches);
 	}
 
-	private static void crearCoches(ArrayList<Coche> coches, Transbordador transbordador) {
+	private void crearCoches(ArrayList<Coche> coches, Transbordador transbordador) {
 		for(int i = 0; i < numCoches; i++){
 			coches.add(new Coche(transbordador, i));
 		}
 	}
 
-	private static void iniciarCoches(ArrayList<Coche> coches) {
+	private void iniciarCoches(ArrayList<Coche> coches) {
 		for(int i = 0; i < numCoches; i++){
 			coches.get(i).start();
 		}
 	}
 
-	private static void pararCoches(ArrayList<Coche> coches) {
+	private void pararCoches(ArrayList<Coche> coches) {
 		for(int i = 0; i < numCoches; i++){
 			coches.get(i).interrupt();
 		}

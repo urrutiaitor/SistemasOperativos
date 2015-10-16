@@ -21,7 +21,7 @@ public class Discoteca {
 	public void entrarChico(int id){
 		try {
 			semaforoChicos.acquire();
-			if(!semaforoDiscoteca.tryAcquire()) semaforoChicos.release();
+			if(!semaforoDiscoteca.tryAcquire()) semaforoChicos.release(); //no esta bien
 		} catch (InterruptedException e) {
 			System.err.println("Chico " + id + " interrumpido");
 			return;

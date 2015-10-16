@@ -23,19 +23,21 @@ public class Baño {
 		if (genero.toUpperCase().equals("CHICO")) {
 			semaforoBañoChicos.acquire();
 			synchronized (this) {
+				
 				numChicos++;
+				System.out.println("Chico " + id);
+				
 				if((semaforoBañoChicas.hasQueuedThreads())&&(numChicos == numMaxPersonas)){
 					numChicos = 0;
 					semaforoBañoChicas.release(numMaxPersonas);
 					System.out.println("--------------------");
 				}
-				if((!semaforoBañoChicas.hasQueuedThreads())&&(numChicos == numMaxPersonas)){
+				else if((!semaforoBañoChicas.hasQueuedThreads())&&(numChicos == numMaxPersonas)){
 					numChicos = 0;
 					semaforoBañoChicos.release(numMaxPersonas);
 					System.out.println("--------------------");
 				}
 			}
-			System.out.println("Chico " + id);
 		}
 		if (genero.toUpperCase().equals("CHICA")) {
 			semaforoBañoChicas.acquire();

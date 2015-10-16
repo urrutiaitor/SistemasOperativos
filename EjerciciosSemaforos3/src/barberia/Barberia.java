@@ -26,8 +26,8 @@ public class Barberia {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		semaforoBarbero.release();
 		System.out.println("Cliente " + id);
+		semaforoBarbero.release();
 	}
 	
 	public void trabajar(){
@@ -38,6 +38,7 @@ public class Barberia {
 			e.printStackTrace();
 		}
 		semaforoBarberia.release();
+		System.out.println("Cortando");
 	}
 
 	public void cerrar() {
