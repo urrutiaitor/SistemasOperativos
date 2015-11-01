@@ -7,12 +7,14 @@ import java.util.ArrayList;
 
 public class Main {
 
-	ArrayList<String> tareas;
 	final String direccion = "datos.txt";
+	OperacionesExecutor executor;
+	int numHilos = 10;
 
 	public static void main(String[] args) {
 		Main main = new Main();
-		main.tareas = new ArrayList<String>();
+		main.executor = new OperacionesExecutor(main.numHilos);
+		main.leerFichero();
 	}
 
 	private void leerFichero() {
@@ -38,28 +40,20 @@ public class Main {
 				ex.printStackTrace();
 			}
 		}
+		executor.parar();
 	}
 
 	private void analizarOrden(String sCurrentLine) {
-		ArrayList<Integer> numeros = new ArrayList<Integer>();
 		String partes[] = sCurrentLine.split(" ");
 		int num = partes.length - 1;
+		int numeros[] = new int[num];
 
-		switch (partes[0]) {
-		case "Multiplicar":
-			int multiplicacion = 1;
-			for(int i = 0; i < num; i++) multiplicacion = String.valueOf(partes[i + 1]);
-			break;
-		case "Sumar":
-
-			break;
-		case "Maximo":
-
-			break;
-
-		default:
-			break;
+		for (int i = 1; i < partes.length; i++) {
+			numeros[i - 1] = Integer.valueOf(partes[i]);
 		}
+		String operacion = partes[0];
+
+		executor.añadirOperacion(operacion, numeros);
 	}
 
 }
