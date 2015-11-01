@@ -1,0 +1,20 @@
+package itv;
+
+public class ITV {
+
+	boolean abierto;
+	
+	
+	
+	
+	
+	
+	public boolean abierto() {
+		return abierto;
+	}
+	
+	public void cerrar() {
+		abierto = false;
+	}
+
+}

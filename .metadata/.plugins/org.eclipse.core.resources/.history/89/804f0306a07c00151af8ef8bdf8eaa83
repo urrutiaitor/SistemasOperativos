@@ -1,0 +1,73 @@
+package itv;
+
+public class ITV {
+
+	int aforoAparcamiento;
+	int aforoCochera;
+	
+	boolean abierto;
+	
+	Object aparcamiento;
+	
+	
+	public ITV(int aforoAparcamiento, int aforoCochera) {
+		super();
+		this.aforoAparcamiento = aforoAparcamiento;
+		this.aforoCochera = aforoCochera;
+		
+		abierto = true;
+		
+		aparcamiento = new Object();
+	}
+
+	public boolean abierto() {
+		return abierto;
+	}
+	
+	public void cerrar() {
+		abierto = false;
+	}
+
+	public void esperarCoche() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void revisarCoche() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void entrarEnAparcamiento(int id) {
+		if(!aparcamientoLibre()){
+			System.out.println("Coche " + id + " no encuentra sitio en aparcamiento y se va");
+		}
+	}
+
+	private boolean aparcamientoLibre() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void entrarEnCochera(int id) {
+		while(!cocheraLibre()) {
+			try {
+				aparcamiento.wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+	private boolean cocheraLibre() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void salir(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

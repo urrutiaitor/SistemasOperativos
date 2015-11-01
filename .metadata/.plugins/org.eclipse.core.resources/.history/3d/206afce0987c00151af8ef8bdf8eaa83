@@ -1,0 +1,17 @@
+package itv;
+
+public class Coche extends Thread {
+
+	int id;
+	ITV itv;
+	
+	
+	public Coche(int id, ITV itv) {
+		super();
+		this.id = id;
+		this.itv = itv;
+	}
+	
+	
+
+}

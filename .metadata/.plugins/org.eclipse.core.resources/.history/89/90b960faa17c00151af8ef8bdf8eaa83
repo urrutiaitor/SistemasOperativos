@@ -1,0 +1,131 @@
+package itv;
+
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class ITV {
+
+	int aforoAparcamiento;
+	int aforoCochera;
+	
+	boolean abierto;
+	
+	Object aparcamiento;
+	
+	Lock candadoAparcamiento;
+	Condition colaApCoche;
+	Condition colaApOperario;
+	
+	Lock candadoCochera;
+	Condition colaCocheraCoche;
+	Condition colaCocheraOperario;
+	
+	int numCochesAparcamiento;
+	int numCochesCochera;
+	
+	boolean cochesRevisados[];
+	
+	
+	public ITV(int aforoAparcamiento, int aforoCochera) {
+		super();
+		this.aforoAparcamiento = aforoAparcamiento;
+		this.aforoCochera = aforoCochera;
+		
+		abierto = true;
+		
+		candadoAparcamiento = new ReentrantLock();
+		colaApCoche = candadoAparcamiento.newCondition();
+		colaApOperario = candadoAparcamiento.newCondition();
+		
+		candadoCochera = new ReentrantLock();
+		colaCocheraCoche = candadoCochera.newCondition();
+		colaCocheraOperario = candadoCochera.newCondition();
+		
+		numCochesAparcamiento = 0;
+		numCochesCochera = 0;
+		
+		cochesRevisados = new boolean[aforoCochera];
+	}
+
+	public boolean abierto() {
+		return abierto;
+	}
+	
+	public void cerrar() {
+		abierto = false;
+	}
+
+	public void esperarCoche() {
+		while(!cochesAparcamiento()) {
+			try {
+				colaApOperario.await();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+	private boolean cochesAparcamiento() {
+		candadoAparcamiento.lock();
+		if (numCochesCochera > 0) {
+			numCochesCochera--;
+			candadoAparcamiento.unlock();
+			return true;
+		} else {
+			candadoAparcamiento.unlock();
+			return false;
+		}
+	}
+
+	public void revisarCoche(int idOperario, int idCoche, int posicion) {
+		candadoCochera.lock();
+		if (!cochesRevisados[posicion]) System.err.println("Operario " + idOperario + " encuentra coche " + idCoche + " en cochera " + posicion + " revisado");
+		System.out.println("Operario " + idOperario + " revisa coche " + idCoche + " en cochera " + posicion);
+	}
+
+	public boolean entrarEnAparcamiento(int id) {
+		if(!aparcamientoLibre()){
+			System.out.println("Coche " + id + " no encuentra sitio en aparcamiento y se va");
+			return false;
+		} else {
+			System.out.println("Coche " + id + " encuentra sitio en aparcamiento y aparca");
+			return true;
+		}
+	}
+
+	private boolean aparcamientoLibre() {
+		candadoAparcamiento.lock();
+		if (numCochesAparcamiento < aforoAparcamiento) {
+			numCochesAparcamiento++;
+			candadoAparcamiento.unlock();
+			return true;
+		} else {
+			candadoAparcamiento.unlock();
+			return false;
+		}
+	}
+
+	public void entrarEnCochera(int id) {
+		while(!cocheraLibre()) {
+			try {
+				aparcamiento.wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+	private boolean cocheraLibre() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void salir(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

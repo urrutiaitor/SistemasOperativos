@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.awt.GridLayout"/>
-<fullyQualifiedTypeName name="Cronometro.Cronometro"/>
-<fullyQualifiedTypeName name="multiplicacionMatriz.Matriz"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="multiplicacionMatriz.Multiplicador"/>
-<fullyQualifiedTypeName name="encuentraNumerosPrimos.Hilo"/>
-<fullyQualifiedTypeName name="juegoJugador.Jugador"/>
 <fullyQualifiedTypeName name="juegoJugador.HiloNegativo"/>
 <fullyQualifiedTypeName name="juegoJugador.HiloPositibo"/>
 <fullyQualifiedTypeName name="java.lang.Runnable"/>
@@ -51,13 +44,20 @@
 <fullyQualifiedTypeName name="bañosCompartidos.Baño"/>
 <fullyQualifiedTypeName name="discoteca.Discoteca"/>
 <fullyQualifiedTypeName name="barberia.Barbero"/>
-<fullyQualifiedTypeName name="java.lang.Object"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="accionesFichero.Main"/>
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="java.io.FileReader"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.util.concurrent.Semaphore"/>
 <fullyQualifiedTypeName name="itv.BuzonAsincrono"/>
+<fullyQualifiedTypeName name="java.util.concurrent.Semaphore"/>
+<fullyQualifiedTypeName name="buzonSincrono.BuzonSincrono"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="blancanieves.Blancanieves"/>
+<fullyQualifiedTypeName name="blancanieves.Enanito"/>
+<fullyQualifiedTypeName name="blancanieves.Mesa"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="java.util.concurrent.locks.Condition"/>
+<fullyQualifiedTypeName name="java.util.concurrent.locks.Lock"/>
+<fullyQualifiedTypeName name="java.util.concurrent.locks.ReentrantLock"/>
 </qualifiedTypeNameHistroy>

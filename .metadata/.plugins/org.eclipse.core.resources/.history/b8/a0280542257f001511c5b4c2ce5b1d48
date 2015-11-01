@@ -1,0 +1,27 @@
+package blancanieves;
+
+public class Blancanieves extends Thread {
+
+	Mesa mesa;
+	boolean servidos;
+
+	public Blancanieves(Mesa mesa) {
+		super();
+		this.mesa = mesa;
+		
+		servidos = false;
+	}
+	
+	public void run () {
+		int posicion;
+		
+		while (!servidos) {
+			
+			while ((posicion = mesa.encontrarComensal()) == -1) {
+				mesa.pasear();
+			}
+			
+			mesa.servir(posicion);
+		}
+	}
+}
