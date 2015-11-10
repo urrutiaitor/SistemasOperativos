@@ -1,51 +1,69 @@
 package itv;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class Main {
 
-	final static int numCochesMax = 2;
-	final static int numInspeccionesMax = 1;
-	final static int numOperariosMax = 3;
+	public static int MAXCOHESAPARCAMIENTO = 30;
+	public static int MAXCOCHESCOCHERA = 3;
+	public static int NUMOPERARIOS = 3;
+	public static int NUMCOCHES = 20;
+	public static boolean fin;
+	
+	Coche coches [];
+	
+	BuzonAsincrono aparcamiento;
+	BuzonAsincrono cochera;
+	BuzonAsincrono revisado;
+	
+	Operario operarios[];
 	
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		Main main = new Main();
-		
-		ArrayList<Operario> operarios = new ArrayList<>();
-		Aparcamiento aparcamiento = new Aparcamiento(0, 0, numCochesMax, numInspeccionesMax);
-		
-		CreadorClientes clientes = new CreadorClientes(aparcamiento);
-		main.crearOperarios(operarios, aparcamiento);
-		clientes.start();
-		main.iniciarOperarios(operarios);
-		
-		scanner.nextLine();
-		
-		clientes.setAbierto(false);
-		clientes.interrupt();
-		
-		main.pararOperarios(operarios);
-	
+		Main ejercicio = new Main();
+		ejercicio.iniciar();
+		try {
+			ejercicio.terminar();
+		} catch (InterruptedException e) {}
 	}
 	
-	public void crearOperarios(ArrayList<Operario> operarios, Aparcamiento aparcamiento){
-		for(int i = 0; i < numOperariosMax; i++){
-			operarios.add(new Operario(aparcamiento));
+	public Main() {
+		
+		aparcamiento = new BuzonAsincrono(MAXCOHESAPARCAMIENTO);
+		cochera = new BuzonAsincrono(MAXCOCHESCOCHERA);
+		revisado = new BuzonAsincrono(NUMOPERARIOS);
+		
+		coches = new Coche [NUMCOCHES];
+		for (int i = 0; i<NUMCOCHES; i++){
+			coches[i]= new Coche(i, aparcamiento, cochera, revisado);
+		}
+		operarios = new Operario[NUMOPERARIOS];
+		for (int i = 0; i<NUMOPERARIOS; i++){
+			operarios[i]= new Operario(i,aparcamiento, cochera, revisado);
+		}
+		for(int i = 0; i < MAXCOHESAPARCAMIENTO; i++) {
+			try {
+				aparcamiento.send(i);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 	
-	public void iniciarOperarios(ArrayList<Operario> operarios){
-		for(int i = 0; i < numOperariosMax; i++){
-			operarios.get(i).start();
+	public void iniciar(){
+		for (int i = 0; i<NUMOPERARIOS; i++){
+			operarios[i].start();
+		}
+		for (int i = 0; i<NUMCOCHES; i++){
+			coches[i].start();
 		}
 	}
-	
-	public void pararOperarios(ArrayList<Operario> operarios){
-		for(int i = 0; i < numOperariosMax; i++){
-			operarios.get(i).setTrabajando(false);
-			operarios.get(i).interrupt();
+	public void terminar() throws InterruptedException {
+		for (int i = 0; i<NUMCOCHES; i++){
+			coches[i].join();
+		}
+		
+		for (int i = 0; i < NUMOPERARIOS; i++){
+			operarios[i].setTrabajando();
+			operarios[i].interrupt();
 		}
 	}
 

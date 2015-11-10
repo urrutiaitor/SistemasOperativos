@@ -1,0 +1,44 @@
+package inicial;
+
+public class Filosofo extends Thread {
+	
+	int posicionPalilloIzq;
+	int posicionPalilloDer;
+	int posicion;
+	
+	Mesa mesa;
+
+	public Filosofo(int posicion, Mesa mesa) {
+		super();
+		this.posicionPalilloIzq = posicion + 1;
+		this.posicionPalilloDer = posicion - 1;
+		this.posicion = posicion;
+		this.mesa = mesa;
+		if (posicionPalilloDer < 0) posicionPalilloDer = posicionPalilloDer + mesa.getNumFilosofos();
+		if (posicionPalilloIzq >= mesa.getNumFilosofos()) posicionPalilloDer = posicionPalilloDer - mesa.getNumFilosofos();
+	}
+	
+	public void run() {
+		comer();
+		pensar();
+	}
+
+	private void pensar() {
+		System.out.println("Filosofo pensando");
+		try {
+			Thread.sleep(10);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private void comer() {
+		mesa.cogerPalilloIzq(posicionPalilloIzq);
+		mesa.cogerPalilloDer(posicionPalilloDer);
+		mesa.comer(posicion);
+		mesa.dejarPalilloIzq(posicionPalilloIzq);
+		mesa.dejarPalilloDer(posicionPalilloDer);
+	}
+
+}

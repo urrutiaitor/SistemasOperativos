@@ -88,7 +88,7 @@ public class ITV {
 		}
 		
 		if (!cochesRevisados[posicion]) System.err.println("Operario " + idOperario + " encuentra coche " + cochesEnCochera[posicion] + " en cochera " + posicion + " revisado");
-		System.out.println("Operario " + idOperario + " revisa coche " + cochesEnCochera[posicion] + " en cochera " + posicion);
+		System.out.println("\t\tOperario " + idOperario + " revisa coche " + cochesEnCochera[posicion] + " en cochera " + posicion);
 		cochesRevisados[posicion] = true;
 		candadoCochera.unlock();
 		colaCocheraCoche.signalAll();
@@ -134,7 +134,7 @@ public class ITV {
 		cochesEnAparcamiento[posicionAparcamiento] = -1;
 		candadoAparcamiento.unlock();
 		
-		System.out.println("Coche " + id + " sale del aparcamiento " + posicionAparcamiento + " y se va a la cochera " + posicion);
+		System.out.println("\tCoche " + id + " sale del aparcamiento " + posicionAparcamiento + " y se va a la cochera " + posicion);
 		
 		return posicion;
 	}
@@ -161,7 +161,7 @@ public class ITV {
 		colaApCoche.signalAll();
 		candadoAparcamiento.unlock();
 				
-		System.out.println("Coche " + id + " sale de la cochera " + posicion);
+		System.out.println("\t\t\tCoche " + id + " sale de la cochera " + posicion);
 	}
 
 }

@@ -14,7 +14,12 @@ public class Blancanieves extends Thread {
 		
 		while (!mesa.terminado()) {
 			while ((posicion = mesa.encontrarComensal()) == -1) {
-				mesa.pasear();
+				try {
+					mesa.pasear();
+				} catch (InterruptedException e) {
+					System.err.println("Se ha interrumpido el paseo de Blancanieves");
+					return;
+				}
 			}
 			
 			mesa.servir(posicion);
