@@ -1,44 +1,76 @@
 package itv;
 
-import java.util.ArrayList;
 import java.util.concurrent.Semaphore;
 
-public class BuzonAsincrono <E>{
+public class BuzonAsincrono {
 
-	ArrayList<E> buzon;
-	Semaphore lleno, vacio;
-	Semaphore candado;
-	
-	public BuzonAsincrono(int capacidad) {
-		super();
-		buzon = new ArrayList<>();
-		lleno = new Semaphore(capacidad);
-		candado = new Semaphore(1);
-		vacio = new Semaphore(0);
+	Object message[];
+
+	Object sending;
+	Object receiving;
+
+	Semaphore sent;
+	Semaphore received;
+
+	int indiceEscritura;
+	int indiceLectura;
+
+	int limite;
+
+	public BuzonAsincrono() {
+		limite = 1;
+
+		message = new Object[limite];
+		message[0] = new Object();
+
+		sending = new Object();
+		receiving = new Object();
+
+		sent = new Semaphore(0);
+		received = new Semaphore(limite);
+
+		indiceEscritura = 0;
+		indiceLectura = 0;
 	}
-	
-	public void send (E msg) throws InterruptedException {
-		lleno.acquire();
-		candado.acquire();
-		buzon.add(msg);
-		candado.release();
-		vacio.release();
+
+	public BuzonAsincrono(int cantidad) {
+		limite = cantidad;
+
+		message = new Object[cantidad];
+
+		for (int i = 0; i < cantidad; i++) {
+			message[i] = new Object();
+		}
+
+		sending = new Object();
+		receiving = new Object();
+
+		sent = new Semaphore(0);
+		received = new Semaphore(limite);
 	}
-	
-	public void send() throws InterruptedException {
-		lleno.acquire();
-		candado.acquire();
-		buzon.add(null);
-		candado.release();
-		vacio.release();
+
+	public void send(Object message) throws InterruptedException {
+		synchronized (sending) {
+
+			received.acquire();
+
+			this.message[indiceEscritura % limite] = message;
+			indiceEscritura++;
+			sent.release();
+		}
 	}
-	
-	public E recieve() throws InterruptedException {
-		vacio.acquire();
-		candado.acquire();
-		E msg = buzon.remove(0);
-		candado.release();
-		lleno.release();
-		return msg;
+
+	public Object receive() throws InterruptedException {
+		Object receivedMessage = null;
+
+		synchronized (receiving) {
+
+			sent.acquire();
+
+			receivedMessage = this.message[indiceLectura % limite];
+			indiceLectura++;
+			received.release();
+		}
+		return receivedMessage;
 	}
 }

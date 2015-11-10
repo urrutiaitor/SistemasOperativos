@@ -2,38 +2,34 @@ package itv;
 
 public class Operario extends Thread {
 
-	volatile boolean trabajando;
-	Aparcamiento aparcamiento;
+	int id;
+	boolean trabajando = true;
+	BuzonAsincrono aparcamiento;
+	BuzonAsincrono cochera;
+	BuzonAsincrono revisado;
 	
-	public Operario(Aparcamiento aparcamiento) {
+	public Operario(int id, BuzonAsincrono aparcamiento, BuzonAsincrono cochera, BuzonAsincrono revisado) {
 		super();
+		this.id = id;
 		this.aparcamiento = aparcamiento;
-		trabajando = true;
+		this.cochera = cochera;
+		this.revisado = revisado;
 	}
-
-
-
-	public void run(){
-		while (trabajando){
+	
+	public void run() {
+		
+		while (trabajando) {
 			try {
-				aparcamiento.inspeccionarCoche();
+				revisado.send(cochera.receive());
 			} catch (InterruptedException e) {
-				break;
+				System.err.println("Operario " + id + " interrumpido");
+				return;
 			}
 		}
 	}
 
-
-
-	public boolean isTrabajando() {
-		return trabajando;
-	}
-
-
-
-	public void setTrabajando(boolean trabajando) {
-		this.trabajando = trabajando;
-	}
 	
-	
+	public void setTrabajando(){
+		trabajando = !trabajando;
+	}
 }
