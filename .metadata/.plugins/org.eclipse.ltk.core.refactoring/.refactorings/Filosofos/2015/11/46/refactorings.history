@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 3 elements to &apos;Filosofos/src/quitandoUno&apos;&#x0A;- Original project: &apos;Filosofos&apos;&#x0A;- Destination element: &apos;Filosofos/src/quitandoUno&apos;&#x0A;- Original elements:&#x0A;     inicial.Filosofo.java&#x0A;     inicial.Main.java&#x0A;     inicial.Mesa.java" description="Copy compilation units" destination="/src&lt;quitandoUno" element1="/src&lt;inicial{Filosofo.java" element2="/src&lt;inicial{Main.java" element3="/src&lt;inicial{Mesa.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1447154144186" units="3" version="1.0"/>
+</session>

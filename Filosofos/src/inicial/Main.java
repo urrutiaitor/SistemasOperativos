@@ -1,7 +1,5 @@
 package inicial;
 
-import java.awt.RenderingHints.Key;
-import java.lang.Thread.State;
 import java.util.Scanner;
 
 public class Main {

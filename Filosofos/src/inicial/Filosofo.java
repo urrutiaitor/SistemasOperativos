@@ -36,19 +36,12 @@ public class Filosofo extends Thread {
 	}
 
 	private void comer() {
-		if (posicion % 2 == 1) {
-			mesa.cogerPalillo(posicionPalilloIzq);
-			mesa.cogerPalillo(posicionPalilloDer);
-			mesa.comer(posicion);
-			mesa.dejarPalillo(posicionPalilloDer);
-			mesa.dejarPalillo(posicionPalilloIzq);
-		} else {
-			mesa.cogerPalillo(posicionPalilloDer);
-			mesa.cogerPalillo(posicionPalilloIzq);
-			mesa.comer(posicion);
-			mesa.dejarPalillo(posicionPalilloIzq);
-			mesa.dejarPalillo(posicionPalilloDer);
-		}
+		
+		mesa.cogerPalillo(posicionPalilloDer);
+		mesa.cogerPalillo(posicionPalilloIzq);
+		mesa.comer(posicion);
+		mesa.dejarPalillo(posicionPalilloIzq);
+		mesa.dejarPalillo(posicionPalilloDer);
 		
 	}
 

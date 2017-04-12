@@ -5,6 +5,10 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/Users/aitorurrutia/GitHub/POPBL5-T/Desktop App/UserApp"/>
+			<item value="/Users/aitorurrutia/GitHub/JavaAdvandcedProgramming/intGraphicContactDiary"/>
+			<item value="/Users/aitorurrutia/GitHub/JavaAdvandcedProgramming/intGraphicSimpleMenu"/>
+			<item value="/Users/aitorurrutia/GitHub/JavaAdvandcedProgramming"/>
 			<item value="/Users/aitorurrutia/Downloads/problemasexecutors"/>
 			<item value="/Users/aitorurrutia/Downloads/executors"/>
 			<item value="/Users/aitorurrutia/Downloads/EjerciciciosMonitores"/>
@@ -17,6 +21,14 @@
 	<section name="ResourceNavigator">
 		<item value="Aggregate for window 1441904193112" key="ResourceWorkingSetFilter.STORE_WORKING_SET"/>
 		<item value="1" key="ResourceViewer.STORE_SORT_TYPE"/>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item value="544" key="DIALOG_X_ORIGIN"/>
+		<item value="320" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">
 		<item value="false" key="FilterByLocation"/>
@@ -31,5 +43,12 @@
 			<item value="540" key="DIALOG_X_ORIGIN"/>
 			<item value="192" key="DIALOG_Y_ORIGIN"/>
 		</section>
+	</section>
+	<section name="SaveAsDialogSettings">
+		<item value="526" key="DIALOG_WIDTH"/>
+		<item value="1|.SF NS Text|11.0|0|COCOA|1|.SFNSText-Regular" key="DIALOG_FONT_NAME"/>
+		<item value="529" key="DIALOG_HEIGHT"/>
+		<item value="577" key="DIALOG_X_ORIGIN"/>
+		<item value="22" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
